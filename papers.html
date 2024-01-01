@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cassidy Shubatt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+      button.accordion2 {
+      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      padding: 0px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 100%;
+      transition: 0.4s;
+      background-color: #f8f8f8;
+      }
+      button.accordion {
+      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      padding: 0px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 100%;
+      transition: 0.4s;
+      background-color: #f8f8f8;
+      }
+      button.accordion.active, button.accordion:hover {
+      background-color: #f8f8f8;
+      }
+      button.accordion:after {
+      content: '[+]';
+      font-size: 90%;
+      color:#777;
+      float: left;
+      margin-left: 1px;
+      }
+
+      button.accordion2:after {
+      content: '[#]';
+      font-size: 90%;
+      color:#777;
+      float: left;
+      margin-left: 1px;
+      }
+
+      button.accordion.active:after {
+      content: "[\2212]";
+      }
+      div.panel {
+      padding: 0 20px;
+      margin-top: 5px;
+      display: none;
+      background-color: white;
+      font-size: 100%;
+      }
+      div.panel.show {
+      display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Cassidy Shubatt</h1>
+        <h3><p class="view"><a href="https://cshubatt.github.io/">Home</a></p></h3><h3>
+			<p class="view"><a href="https://cshubatt.github.io/papers/cv.pdf">CV</a></p>
+		</h3>
+        <h3><p class="view"><a href="https://cshubatt.github.io/papers.html">Research</a></p></h3>
+	<p class="view"><img src="portrait_round.jpg" width=270 height=270></p>
+	<p>I am an Economics graduate student at Harvard University. You can reach me via email at cshubatt@g.harvard.edu. </p>
+      </header>
+      <section>
+	<h3> Research</h3>	
+	<h4><i> Working Papers</i></h4>	
+
+	<p style="margin:0;">
+	<p> <a style="margin:0; font-size:100%; font-weight:bold"
+			href="https://cshubatt.github.io/papers/comparison_complexity.pdf">Similarity and Comparison Complexity</a> <br> with Jeffrey Yang <button class="accordion"> Abstract </button>
+	<div class="panel" style="background-color: #F1F1F1; color: #666; padding: 10px;"> Some choice options are more difficult to compare than others. This paper develops a theory of what makes comparing choice options complex, and how comparison complexity generates systematic mistakes in choice. In our model, options are easier to compare when they 1) share similar features, holding fixed their value difference, and 2) are closer to dominance. We show how these two postulates yield tractable measures of comparison complexity in the domains of multiattribute, lottery, and intertemporalchoice. Using experimental data on binary choices, we demonstrate that our complexity measures predict choice errors, choice inconsistency, and cognitive uncertainty across all three domains. We then show how canonical anomalies in choice and valuation, such as context effects, preference reversals, and apparent probability weighting and present bias in the valuation of risky and intertemporal prospects, can be understood as responses to comparison complexity.
+	</div>
+	</p>
+	<p style="margin:0;">
+		<p> <a style="margin:0; font-size:100%; font-weight:bold"
+			href="https://cshubatt.github.io/papers/quantifying_complexity.pdf">Quantifying Lottery Choice Complexity</a> <br> with Benjamin Enke <button class="accordion"> Abstract </button>
+	  <div class="panel" style="background-color: #F1F1F1; color: #666; padding: 10px;">
+		We develop interpretable, quantitative indices of the objective and subjective complexity of lottery choice problems that can be computed for any standard dataset. These indices capture the predicted error rate in identifying the lottery with the highest expected value, where the predictions are computed as convex combinations of choice set features. The most important complexity feature in the indices is a measure of the excess dissimilarity of the cumulative distribution functions of the lotteries in the set. Using our complexity indices, we study behavioral responses to complexity out-of-sample across one million decisions in 11,000 unique experimental choice problems. Complexity makes choices substantially noisier, which can generate systematic biases in revealed preference measures such as spurious risk aversion. These effects are very large, to the degree that complexity explains a larger fraction of estimated choice errors than proximity to indifference. Accounting for complexity in structural estimations improves model fit substantially.
+
+	</div>
+	</p>
+</section>	
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    <script> 
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            this.parentNode.nextElementSibling.classList.toggle("show");
+      }
+    }
+    </script>
+  </body>
+</html>
