@@ -65,7 +65,7 @@ code, pre {
 
 pre {
   padding:8px 15px;
-  background: #f8f8f8;
+  background: #CFEAE4;
   border-radius:5px;
   border:1px solid #e5e5e5;
   overflow-x: auto;
@@ -108,12 +108,12 @@ header ul {
   padding:0;
 
   background: #eee;
-  background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
-  background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  background: -moz-linear-gradient(top, #CFEAE4 0%, #dddddd 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CFEAE4), color-stop(100%,#dddddd));
+  background: -webkit-linear-gradient(top, #CFEAE4 0%,#dddddd 100%);
+  background: -o-linear-gradient(top, #CFEAE4 0%,#dddddd 100%);
+  background: -ms-linear-gradient(top, #CFEAE4 0%,#dddddd 100%);
+  background: linear-gradient(top, #CFEAE4 0%,#dddddd 100%);
 
   border-radius:5px;
   border:1px solid #d2d2d2;
