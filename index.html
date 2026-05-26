@@ -1,124 +1,358 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <title>Cassidy Shubatt</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css" />
-    <link rel="stylesheet" href="stylesheets/github-light.css" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <style>
-      button.accordion2 {
-        font:
-          14px/1.5 Lato,
-          "Helvetica Neue",
-          Helvetica,
-          Arial,
-          sans-serif;
-        cursor: pointer;
-        padding: 0px;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 100%;
-        transition: 0.4s;
-        background-color: #cfeae4;
-      }
-      button.accordion {
-        font:
-          14px/1.5 Lato,
-          "Helvetica Neue",
-          Helvetica,
-          Arial,
-          sans-serif;
-        cursor: pointer;
-        padding: 0px;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 100%;
-        transition: 0.4s;
-        background-color: #cfeae4;
-      }
-      button.accordion.active,
-      button.accordion:hover {
-        background-color: #cfeae4;
-      }
-      button.accordion:after {
-        content: "[+]";
-        font-size: 90%;
-        color: #777;
-        float: left;
-        margin-left: 1px;
+      :root {
+        --text: #1a1a1a;
+        --muted: #6b6b6b;
+        --rule: #e6e6e6;
+        --accent: #2563eb;
+        --bg: #ffffff;
+        --panel: #f7f7f7;
       }
 
-      button.accordion2:after {
-        content: "[#]";
-        font-size: 90%;
-        color: #777;
-        float: left;
-        margin-left: 1px;
+      * {
+        box-sizing: border-box;
       }
 
-      button.accordion.active:after {
-        content: "[\2212]";
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
       }
-      div.panel {
-        padding: 0 20px;
-        margin-top: 5px;
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+          Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .wrapper {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 80px 28px 120px;
+      }
+
+      header {
+        margin-bottom: 56px;
+      }
+
+      .name {
+        font-family: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
+        font-size: 38px;
+        font-weight: 500;
+        letter-spacing: 0;
+        margin: 0 0 6px;
+        color: var(--text);
+      }
+
+      .role {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0 0 36px;
+        padding-bottom: 18px;
+        border-bottom: 1.5px solid var(--text);
+      }
+
+      .intro {
+        display: flex;
+        gap: 28px;
+        align-items: flex-start;
+      }
+
+      .intro img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+
+      .intro p {
+        margin: 0;
+        font-size: 15.5px;
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s ease;
+      }
+
+      a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      section.research {
+        margin-top: 64px;
+      }
+
+      h2.section-title {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 24px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .paper {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .paper:last-child {
+        border-bottom: none;
+      }
+
+      .paper-title {
+        font-size: 16.5px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 6px;
+        line-height: 1.4;
+      }
+
+      .paper-title a {
+        color: var(--text);
+        border-bottom: none;
+      }
+
+      .paper-title a:hover {
+        color: var(--accent);
+      }
+
+      .paper-meta {
+        font-size: 14px;
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+
+      .paper-meta .status {
+        font-style: italic;
+      }
+
+      .paper-actions {
+        display: flex;
+        gap: 14px;
+        font-size: 13.5px;
+      }
+
+      button.toggle {
+        font-family: inherit;
+        font-size: 13.5px;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      button.toggle:hover {
+        text-decoration: underline;
+      }
+
+      .abstract {
         display: none;
-        background-color: #cfeae4;
-        font-size: 100%;
+        margin-top: 14px;
+        padding: 16px 18px;
+        background: var(--panel);
+        border-radius: 6px;
+        font-size: 14.5px;
+        line-height: 1.65;
+        color: #444;
       }
-      div.panel.show {
-        display: block !important;
+
+      .abstract.show {
+        display: block;
+      }
+
+      @media (max-width: 560px) {
+        .wrapper {
+          padding: 48px 20px 80px;
+        }
+        .intro {
+          flex-direction: column;
+          gap: 18px;
+        }
+        .intro img {
+          width: 120px;
+          height: 120px;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- <div class="banner-image">
-      <img src="banner.png" alt="Banner Image" class="banner-image" />
-    </div> -->
     <div class="wrapper">
       <header>
-        <h1>Cassidy Shubatt</h1>
-        <h3>
-          <p class="view"><a href="https://cshubatt.github.io/">Home</a></p>
-        </h3>
-        <!-- <h3><p class="view"><a href="https://cshubatt.github.io/papers/cv.pdf">CV</a></p></h3> -->
-        <h3>
-          <p class="view">
-            <a href="https://cshubatt.github.io/papers.html">Research</a>
+        <h1 class="name">Cassidy Shubatt</h1>
+        <p class="role">Economics PhD candidate, Harvard University</p>
+
+        <div class="intro">
+          <img src="portrait_round.jpg" alt="Portrait of Cassidy Shubatt" />
+          <p>
+            I am an Economics graduate student at Harvard University and an
+            affiliate of
+            <a href="https://sites.mit.edu/thebikeshop/what-we-do/"
+              >The Bike Shop</a
+            >
+            at MIT. I use experiments and machine learning to draw insights
+            about human behavior. I also cohost the podcast
+            <a href="https://rss.com/podcasts/technically-economics/"
+              >Technically Economics</a
+            >
+            with my classmate
+            <a href="https://dominicrussel.com/">Dominic Russel</a>. You can
+            reach me at cshubatt[at]g.harvard.edu.
           </p>
-        </h3>
-        <p class="view">
-          <img src="portrait_round.jpg" width="270" height="270" />
-        </p>
-        <p>
-          I am an Economics graduate student at Harvard University and an
-          affiliate of <a href="https://sites.mit.edu/thebikeshop/what-we-do/">The Bike Shop</a> at MIT. I use experiments and machine
-          learning to draw insights about human behavior. I also cohost the
-          podcast <a href="https://rss.com/podcasts/technically-economics/">Technically Economics</a> with with my classmate <a href="https://dominicrussel.com/">Dominic Russel</a>.
-          You can reach me via email at cshubatt[at]g.harvard.edu.
-        </p>
+        </div>
       </header>
-      <section>
-        <!-- <a href="https://cshubatt.github.io/papers/cv.pdf">My CV is available here.</a> -->
+
+      <section class="research" id="research">
+        <h2 class="section-title">Working Papers</h2>
+
+        <div class="paper">
+          <h3 class="paper-title">
+            <a href="https://jeffreyyang97.github.io/personalwebsite/VTC_Draft.pdf"
+              >Valuations Under Tradeoff Complexity</a
+            >
+          </h3>
+          <p class="paper-meta">
+            with
+            <a href="https://sites.google.com/view/jeffrey-p-yang">Jeffrey Yang</a>
+          </p>
+          <div class="paper-actions">
+            <button class="toggle">Abstract</button>
+          </div>
+          <div class="abstract">
+            Valuation tasks are a workhorse method for testing theories of
+            individual preferences. However, a body of evidence suggests that
+            complexity produces systematic measurement error in valuations,
+            which raises the question of how researchers should interpret and
+            utilize valuation data. To formally study this issue, we develop a
+            model of complexity-driven noise in the valuation of risky
+            prospects, in which the difficulty of comparing options to prices
+            produces systematic noise in their valuations. We show how this
+            model of noise can explain a number of documented valuation
+            patterns that are difficult to rationalize under prevailing
+            theories of risk preferences, as well as novel experimental
+            evidence of systematic inconsistencies across valuation formats.
+            We then characterize which valuation-based tests of preferences
+            are robust to complexity in our model. While complexity distorts
+            the levels of valuations in our model, differences between
+            valuations can be informative, so long as complexity is held fixed
+            across valuation tasks. We provide a formal criterion for
+            robustness and apply it to valuation designs in the literature.
+          </div>
+        </div>
+
+        <div class="paper">
+          <h3 class="paper-title">
+            <a href="https://cshubatt.github.io/papers/comparison_complexity.pdf"
+              >Tradeoffs and Comparison Complexity</a
+            >
+          </h3>
+          <p class="paper-meta">
+            with
+            <a href="https://sites.google.com/view/jeffrey-p-yang">Jeffrey Yang</a>
+          </p>
+          <div class="paper-actions">
+            <button class="toggle">Abstract</button>
+            <a
+              href="https://cshubatt.github.io/papers/comparison_complexity_appendix.pdf"
+              target="_blank"
+              >Online Appendix</a
+            >
+          </div>
+          <div class="abstract">
+            This paper develops a theory of how tradeoffs govern the
+            difficulty of comparisons. In our model, options are easier to
+            compare when they involve less pronounced tradeoffs — when they
+            are 1) more similar feature-by-feature and 2) closer to dominance.
+            These postulates yield tractable measures of comparison complexity
+            in three domains: multiattribute, lottery, and intertemporal
+            choice. Our model rationalizes multiple behavioral regularities,
+            such as context effects, preference reversals, and apparent
+            probability weighting and hyperbolic discounting. In choice data
+            spanning all three domains, our model predicts errors,
+            inconsistency, and cognitive uncertainty. Manipulating tradeoffs
+            reverses classic behavioral regularities, in line with model
+            predictions.
+          </div>
+        </div>
+
+        <div class="paper">
+          <h3 class="paper-title">
+            <a href="https://cshubatt.github.io/papers/quantifying_complexity.pdf"
+              >Quantifying Lottery Choice Complexity</a
+            >
+          </h3>
+          <p class="paper-meta">
+            with
+            <a href="https://benjamin-enke.com/">Benjamin Enke</a>
+            ·
+            <span class="status"
+              >Revise and resubmit, <u>Econometrica</u></span
+            >
+          </p>
+          <div class="paper-actions">
+            <button class="toggle">Abstract</button>
+            <a href="https://github.com/cshubatt/Complexity-Index" target="_blank"
+              >Code</a
+            >
+          </div>
+          <div class="abstract">
+            Using theory and experiments, this paper shows that the difficulty
+            of making tradeoffs offers a parsimonious explanation for a wide
+            range of behavioral phenomena. We develop a model of imprecise
+            comparisons applicable to multiattribute, lottery, and
+            intertemporal choice, which formalizes the idea that comparisons
+            are difficult when they involve pronounced tradeoffs. Our model
+            rationalizes a range of documented regularities, such as context
+            effects, preference reversals, apparent probability weighting and
+            hyperbolic discounting, and generates novel implications for
+            behavior. We assess the explanatory power of our model in a series
+            of choice experiments. Our model explains a large share of the
+            variation in choice inconsistency across problems, and we document
+            that manipulating tradeoffs reverses classic behavioral
+            regularities, in line with its predictions.
+          </div>
+        </div>
       </section>
     </div>
 
-    <!-- Footer section with attribution note -->
-    <footer>
-      <p>
-        Style adapted from
-        <a href="https://paulgp.github.io/">paulgp.github.io.</a>
-      </p>
-    </footer>
-
-    <script src="javascripts/scale.fix.js"></script>
+    <script>
+      document.querySelectorAll("button.toggle").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var panel = btn.parentElement.nextElementSibling;
+          panel.classList.toggle("show");
+          btn.textContent = panel.classList.contains("show")
+            ? "Hide abstract"
+            : "Abstract";
+        });
+      });
+    </script>
   </body>
 </html>
